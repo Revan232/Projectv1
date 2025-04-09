@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Photography Gallery</title>
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <!-- Include navbar -->
+    <div id="navbar-container"></div>
+    
+    <div class="container">
+        <div class="login-section">
+            <h2>Admin Login</h2>
+            <p>Please enter your credentials to access the admin dashboard.</p>
+            <form class="admin-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="admin-btn" id="login-btn">Login</button>
+            </form>
+            <div class="login-help">
+                <p>Demo credentials:</p>
+                <ul>
+                    <li>Admin: username: <strong>admin</strong>, password: <strong>password123</strong></li>
+                    <li>Editor: username: <strong>editor</strong>, password: <strong>editor123</strong></li>
+                    <li>User: username: <strong>user</strong>, password: <strong>user123</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 My Photography Gallery. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script>
+        // Load navbar
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+            
+        // Handle login form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('loginUsername').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                if (!username || !password) {
+                    alert('Mohon isi semua field');
+                    return;
+                }
+                
+                // Gunakan sistem autentikasi untuk login
+                const result = auth.login(username, password);
+                
+                if (result.success) {
+                    // Redirect ke dashboard jika login berhasil
+                    window.location.href = 'dashboard.html';
+                } else {
+                    // Tampilkan pesan error
+                    alert(result.message || 'Username atau password salah');
+                }
+            });
+            
+            // Cek apakah user sudah login
+            if (auth.isLoggedIn()) {
+                // Redirect ke dashboard jika sudah login
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,142 @@
+<!-- Navbar untuk semua halaman -->
+<nav class="navbar">
+    <div class="nav-brand">
+        <a href="../index.html">My Photography Gallery</a>
+    </div>
+    <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../pages/gallery.html" class="nav-link">Gallery</a>
+        <a href="../pages/about.html" class="nav-link">About</a>
+        <a href="../pages/contact.html" class="nav-link">Contact</a>
+        <a href="../pages/login.html" class="nav-link" id="admin-link">Admin</a>
+        <button id="logout-btn" class="nav-btn" style="display: none;">Logout</button>
+    </div>
+</nav>
+
+<!-- CSS untuk navbar -->
+<style>
+.navbar {
+    background-color: #333;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-brand a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #555;
+}
+
+.nav-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #c82333;
+}
+
+/* Tambahkan margin-top pada body untuk kompensasi navbar fixed */
+body {
+    margin-top: 70px;
+}
+</style>
+
+<!-- Script untuk navbar -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk mengupdate tampilan navbar berdasarkan status login
+    function updateNavbar() {
+        const currentUser = sessionStorage.getItem('currentUser');
+        const adminLink = document.getElementById('admin-link');
+        const logoutBtn = document.getElementById('logout-btn');
+        
+        if (currentUser) {
+            try {
+                const userData = JSON.parse(currentUser);
+                // User sudah login
+                adminLink.textContent = 'Dashboard';
+                adminLink.href = '../pages/dashboard.html';
+                logoutBtn.style.display = 'block';
+                
+                // Tambahkan event listener untuk tombol logout
+                logoutBtn.onclick = function() {
+                    // Gunakan sistem autentikasi untuk logout
+                    if (typeof auth !== 'undefined') {
+                        auth.logout();
+                    } else {
+                        // Jika auth tidak tersedia, hapus session storage
+                        sessionStorage.removeItem('currentUser');
+                    }
+                    
+                    // Redirect ke halaman login
+                    window.location.href = '../pages/login.html';
+                };
+            } catch (error) {
+                console.error('Error parsing user data:', error);
+                // Jika ada error, reset ke status logout
+                sessionStorage.removeItem('currentUser');
+                adminLink.textContent = 'Admin';
+                adminLink.href = '../pages/login.html';
+                logoutBtn.style.display = 'none';
+            }
+        } else {
+            // User belum login
+            adminLink.textContent = 'Admin';
+            adminLink.href = '../pages/login.html';
+            logoutBtn.style.display = 'none';
+        }
+    }
+    
+    // Update navbar saat halaman dimuat
+    updateNavbar();
+    
+    // Tambahkan event listener untuk tombol logout
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            // Gunakan sistem autentikasi untuk logout
+            if (typeof auth !== 'undefined') {
+                auth.logout();
+            } else {
+                // Jika auth tidak tersedia, hapus session storage
+                sessionStorage.removeItem('currentUser');
+            }
+            
+            // Redirect ke halaman login
+            window.location.href = '../pages/login.html';
+        });
+    }
+});
+</script> 

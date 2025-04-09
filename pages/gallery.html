@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Photography Gallery</title>
+    <link rel="stylesheet" href="../css/gallery.css">
+</head>
+<body>
+    <!-- Include navbar -->
+    <div id="navbar-container"></div>
+    
+    <div class="container">
+        <div class="category-filter">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="landscape">Landscape</button>
+            <button class="filter-btn" data-category="portrait">Portrait</button>
+            <button class="filter-btn" data-category="street">Street</button>
+            <button class="filter-btn" data-category="nature">Nature</button>
+            <button class="filter-btn editor-only" id="add-photo-btn">Add Photo</button>
+        </div>
+        
+        <div class="gallery" id="gallery-container">
+            <!-- Gallery items will be dynamically added here -->
+        </div>
+    </div>
+    
+    <!-- Add/Edit Photo Modal -->
+    <div class="modal" id="photo-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 id="modal-title">Add New Photo</h2>
+            <form id="photo-form">
+                <div class="form-group">
+                    <label for="photo-title">Title</label>
+                    <input type="text" id="photo-title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photo-category">Category</label>
+                    <select id="photo-category" required>
+                        <option value="landscape">Landscape</option>
+                        <option value="portrait">Portrait</option>
+                        <option value="street">Street</option>
+                        <option value="nature">Nature</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photo-description">Description</label>
+                    <textarea id="photo-description" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photo-url">Image URL</label>
+                    <input type="url" id="photo-url" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Save Photo</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 My Photography Gallery. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/gallery.js"></script>
+    <script>
+        // Load navbar
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Photography Gallery</title>
+    <link rel="stylesheet" href="../css/about.css">
+</head>
+<body>
+    <!-- Include navbar -->
+    <div id="navbar-container"></div>
+    
+    <div class="container">
+        <section class="about-section">
+            <h2>About Me</h2>
+            <img src="https://source.unsplash.com/random/300x300/?photographer" alt="Photographer portrait">
+            
+            <div class="bio">
+                <h3>My Story</h3>
+                <p>Hello! I'm a passionate photographer who specializes in capturing the beauty of everyday life. My journey with photography started 5 years ago when I first picked up a camera during a trip abroad.</p>
+                <p style="margin-top: 1rem;">What began as a casual hobby quickly evolved into a lifelong passion. I'm constantly exploring new techniques and styles to expand my creative horizons. My work has been featured in several local exhibitions and online photography communities.</p>
+                <p style="margin-top: 1rem;">When I'm not behind the camera, you'll find me hiking in nature, exploring urban landscapes, or enjoying a good book at my favorite café.</p>
+            </div>
+            
+            <div>
+                <h3>Photography Style</h3>
+                <p>I specialize in landscape and portrait photography, with a focus on natural lighting and authentic moments. I believe that the most powerful images are those that tell a story and evoke emotion.</p>
+                
+                <h3>Technical Skills</h3>
+                <div class="skills">
+                    <span class="skill-tag">Portrait Photography</span>
+                    <span class="skill-tag">Landscape Photography</span>
+                    <span class="skill-tag">Adobe Lightroom</span>
+                    <span class="skill-tag">Adobe Photoshop</span>
+                    <span class="skill-tag">Night Photography</span>
+                    <span class="skill-tag">Studio Lighting</span>
+                    <span class="skill-tag">Macro Photography</span>
+                </div>
+                
+                <h3>Equipment</h3>
+                <p>I primarily shoot with a Canon EOS 5D Mark IV and a selection of prime lenses. For landscape work, I often use a Sony Alpha a7 III with wide-angle lenses.</p>
+            </div>
+            
+            <div class="timeline">
+                <h3>My Journey</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018</div>
+                    <div class="timeline-content">
+                        <h4>Started Photography</h4>
+                        <p>Began my journey with a basic DSLR camera and online tutorials.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2019</div>
+                    <div class="timeline-content">
+                        <h4>First Exhibition</h4>
+                        <p>Featured in a local community art exhibition.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2020</div>
+                    <div class="timeline-content">
+                        <h4>Professional Training</h4>
+                        <p>Completed advanced photography courses and workshops.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2021</div>
+                    <div class="timeline-content">
+                        <h4>First Solo Exhibition</h4>
+                        <p>Hosted my first solo photography exhibition.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content">
+                        <h4>International Recognition</h4>
+                        <p>Work featured in international photography magazines.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 My Photography Gallery. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script>
+        // Load navbar
+        fetch('../components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html> 
