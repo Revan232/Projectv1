@@ -169,4 +169,422 @@ footer {
     .tool-buttons {
         grid-template-columns: 1fr;
     }
+}
+
+/* Admin Tools Grid */
+.admin-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.admin-tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-tool-item:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.admin-tool-item i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.admin-tool-item span {
+    font-size: 1rem;
+    color: #212529;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 5% auto;
+    padding: 2rem;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* List Styles */
+.categories-list,
+.comments-list,
+.users-list {
+    margin: 1rem 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.category-item,
+.comment-item,
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.category-item input {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.comment-text {
+    font-style: italic;
+    color: #666;
+}
+
+.comment-meta {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Button Styles */
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.approve-btn {
+    background-color: #28a745;
+}
+
+.approve-btn:hover {
+    background-color: #218838;
+}
+
+.cancel-btn {
+    background-color: #6c757d;
+}
+
+.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Logs Styles */
+.logs-container {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.logs-container pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Backup Styles */
+.backup-info {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.backup-info p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+/* Logout Confirmation Styles */
+.logout-confirmation {
+    text-align: center;
+}
+
+.logout-confirmation p {
+    margin: 1rem 0;
+    color: #666;
+}
+
+/* Error Message Styles */
+.error-message {
+    text-align: center;
+    color: #dc3545;
+}
+
+.error-message p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions button {
+        width: 100%;
+    }
+    
+    .category-item,
+    .comment-item,
+    .user-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .category-item input {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .user-actions {
+        margin-top: 0.5rem;
+    }
+}
+
+/* System Options */
+.system-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.system-options .admin-tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.system-options .admin-tool-item:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.system-options .admin-tool-item i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.system-options .admin-tool-item span {
+    font-size: 1rem;
+    color: #212529;
+}
+
+/* Backup Info */
+.backup-info {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.backup-info p {
+    margin: 0.5rem 0;
+    color: #495057;
+}
+
+/* User Management */
+.users-list {
+    margin: 1rem 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    background: #f8f9fa;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-info p {
+    margin: 0.3rem 0;
+    color: #495057;
+}
+
+.user-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.user-actions button {
+    padding: 0.5rem 1rem;
+}
+
+.edit-btn {
+    background-color: #007bff;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Comment Management */
+.comments-list {
+    margin: 1rem 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.comment-item {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    background: #f8f9fa;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.comment-text {
+    margin: 0.5rem 0;
+    color: #212529;
+}
+
+.comment-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.approve-btn {
+    background-color: #28a745;
+}
+
+.approve-btn:hover {
+    background-color: #218838;
+}
+
+/* Profile Edit */
+#profileForm {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#profileForm .form-group {
+    margin-bottom: 1rem;
+}
+
+#profileForm label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+#profileForm input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+#profileForm input:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 } 
